@@ -18,7 +18,10 @@ router.post('/', function (req, res, next) {
       type: websocket.events.ALIPAY,
       result: 200,
       message: 'OK',
-      data: req.body,
+      data: {
+        Headers: req.headers,
+        Body: req.body,
+      },
     },
   });
   return res.status(201).json({
